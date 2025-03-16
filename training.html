@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Phishing Awareness Training</title>
+  <!-- Google Fonts for Attractive Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    /* Global Styles */
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      margin: 0;
+      padding: 0;
+      color: #333;
+      line-height: 1.6;
+    }
+    .container {
+      max-width: 800px;
+      margin: 50px auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      border-top: 5px solid #007bff;
+    }
+    /* Section Animations */
+    .section {
+      display: none;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.5s ease;
+    }
+    .section.active {
+      display: block;
+      opacity: 1;
+      transform: translateY(0);
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes pulse {
+      0% { transform: scale(0.95); opacity: 0.7; }
+      50% { transform: scale(1.05); opacity: 1; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+    /* Navigation Buttons */
+    .nav-buttons {
+      margin-top: 20px;
+      text-align: right;
+    }
+    .btn {
+      padding: 10px 15px;
+      background: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-left: 10px;
+      transition: background 0.3s ease, transform 0.2s ease;
+      font-weight: 500;
+    }
+    .btn:hover {
+      background: #0056b3;
+      transform: scale(1.05);
+    }
+    /* Email Example */
+    .email-example {
+      padding: 15px;
+      border: 2px solid #d9534f;
+      border-radius: 5px;
+      margin: 15px 0;
+      cursor: pointer;
+      background: #ffe6e6;
+      transition: background 0.3s ease;
+    }
+    .email-example:hover {
+      background: #f7c6c5;
+    }
+    .hint {
+      color: #d9534f;
+      display: none;
+      font-weight: 700;
+      animation: pulse 1s ease;
+    }
+    /* Quiz Styling */
+    .quiz-question {
+      margin: 20px 0;
+      font-size: 1.1em;
+      font-weight: 500;
+    }
+    .quiz-option {
+      display: block;
+      padding: 10px;
+      background: #f8f9fa;
+      border: 1px solid #ced4da;
+      border-radius: 4px;
+      margin: 10px 0;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+    .quiz-option:hover {
+      background: #e2e6ea;
+      transform: translateX(5px);
+    }
+    .feedback {
+      margin-top: 10px;
+      font-weight: 700;
+      animation: fadeIn 0.5s ease;
+    }
+    .progress {
+      margin-bottom: 20px;
+      font-style: italic;
+      color: #555;
+    }
+    /* Headings and Text */
+    h1, h2 {
+      color: #007bff;
+      text-shadow: 1px 1px 2px #ccc;
+      font-weight: 700;
+    }
+    h3 {
+      color: #007bff;
+      font-weight: 500;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    p {
+      margin: 15px 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Section 1: Introduction -->
+    <div id="section1" class="section active">
+      <h1>Phishing Awareness Training</h1>
+      <p>
+        Welcome to our interactive training module on phishing attacks.
+        In this training, you'll learn how to identify phishing emails,
+        websites, and social engineering tactics—from the basics to advanced techniques.
+      </p>
+      <p>Click "Next" to begin your learning journey.</p>
+      <div class="nav-buttons">
+        <button class="btn" onclick="nextSection('section1', 'section2')">Next</button>
+      </div>
+    </div>
+
+    <!-- Section 2: What is Phishing? -->
+    <div id="section2" class="section">
+      <h2>What is Phishing?</h2>
+      <p>
+        Phishing is a cyber attack where attackers impersonate a trusted entity to trick individuals into providing sensitive information, such as passwords, credit card numbers, or personal data.
+      </p>
+      <p>
+        For beginners, think of it as a deceptive trick—like a con artist pretending to be someone else.
+      </p>
+      <p>
+        At an advanced level, phishing is a complex social engineering and technical threat that exploits both human psychology and digital vulnerabilities.
+      </p>
+      <div class="nav-buttons">
+        <button class="btn" onclick="prevSection('section2', 'section1')">Previous</button>
+        <button class="btn" onclick="nextSection('section2', 'section3')">Next</button>
+      </div>
+    </div>
+
+    <!-- Section 3: Recognizing Phishing Emails -->
+    <div id="section3" class="section">
+      <h2>Recognizing Phishing Emails</h2>
+      <p>Look for these red flags in emails:</p>
+      <ul>
+        <li>Suspicious sender addresses or mismatched domains</li>
+        <li>Urgent language demanding immediate action</li>
+        <li>Spelling and grammar mistakes</li>
+        <li>Unsolicited attachments or links</li>
+      </ul>
+      <p>
+        <strong>Interactive Example:</strong> Click the email example below to reveal potential phishing signs.
+      </p>
+      <div id="emailExample" class="email-example">
+        <p><strong>From:</strong> support@bank-secure.com</p>
+        <p><strong>Subject:</strong> Urgent: Your Account is at Risk!</p>
+        <p>Please click here to verify your account.</p>
+      </div>
+      <p id="emailHint" class="hint">
+        ⚠️ Warning: This email uses urgent language and a suspicious link. Always verify the sender and the link's URL.
+      </p>
+      <div class="nav-buttons">
+        <button class="btn" onclick="prevSection('section3', 'section2')">Previous</button>
+        <button class="btn" onclick="nextSection('section3', 'section4')">Next</button>
+      </div>
+    </div>
+
+    <!-- Section 4: Social Engineering Tactics -->
+    <div id="section4" class="section">
+      <h2>Social Engineering Tactics</h2>
+      <p>
+        Phishing isn't limited to emails. Attackers may also use:
+      </p>
+      <ul>
+        <li>
+          <strong>Vishing:</strong> Phone calls pretending to be from trusted organizations.
+        </li>
+        <li>
+          <strong>Smishing:</strong> SMS messages prompting you to click on malicious links.
+        </li>
+        <li>
+          <strong>Social Media Scams:</strong> Fake profiles or messages on social platforms.
+        </li>
+      </ul>
+      <p>
+        These tactics exploit human behavior, making it essential to stay alert across all communication channels.
+      </p>
+      <div class="nav-buttons">
+        <button class="btn" onclick="prevSection('section4', 'section3')">Previous</button>
+        <button class="btn" onclick="nextSection('section4', 'section5')">Next</button>
+      </div>
+    </div>
+
+    <!-- Section 5: Protecting Yourself -->
+    <div id="section5" class="section">
+      <h2>Protecting Yourself from Phishing</h2>
+      <p>Here are some best practices for users at any level:</p>
+      <ul>
+        <li>Always verify the sender's email address.</li>
+        <li>Hover over links to see the real URL before clicking.</li>
+        <li>Use multi-factor authentication (MFA) whenever possible.</li>
+        <li>Keep your software and security patches up to date.</li>
+        <li>Be skeptical of urgent or threatening messages.</li>
+      </ul>
+      <p>
+        These measures form the foundation of a strong defense against phishing.
+      </p>
+      <div class="nav-buttons">
+        <button class="btn" onclick="prevSection('section5', 'section4')">Previous</button>
+        <button class="btn" onclick="nextSection('section5', 'section6')">Next</button>
+      </div>
+    </div>
+
+    <!-- Section 6: Advanced Phishing Techniques & Countermeasures -->
+    <div id="section6" class="section">
+      <h2>Advanced Phishing Techniques & Countermeasures</h2>
+      <p>
+        As attackers become more sophisticated, phishing techniques have evolved beyond simple scams:
+      </p>
+      <h3>Advanced Attack Methods:</h3>
+      <ul>
+        <li>
+          <strong>Spear Phishing:</strong> Highly targeted emails crafted specifically for an individual or organization.
+        </li>
+        <li>
+          <strong>Whaling:</strong> Phishing attacks aimed at high-level executives or decision-makers.
+        </li>
+        <li>
+          <strong>Pharming:</strong> Manipulating DNS settings or exploiting vulnerabilities to redirect users to fake websites.
+        </li>
+        <li>
+          <strong>Business Email Compromise (BEC):</strong> Using compromised or spoofed email accounts to authorize fraudulent transactions.
+        </li>
+      </ul>
+      <h3>Countermeasures and Best Practices:</h3>
+      <ul>
+        <li>Implement email authentication protocols such as SPF, DKIM, and DMARC to verify legitimate emails.</li>
+        <li>Deploy advanced threat detection tools and machine learning algorithms to monitor suspicious activities.</li>
+        <li>Regularly update and patch systems to minimize vulnerabilities that attackers can exploit.</li>
+        <li>Conduct simulated phishing campaigns to train employees on identifying even sophisticated phishing attempts.</li>
+        <li>Monitor network traffic and use threat intelligence feeds to detect signs of data exfiltration or anomalous behavior.</li>
+      </ul>
+      <p>
+        By understanding both the basic and advanced tactics, you can better protect yourself and your organization from evolving threats.
+      </p>
+      <div class="nav-buttons">
+        <button class="btn" onclick="prevSection('section6', 'section5')">Previous</button>
+        <button class="btn" onclick="nextSection('section6', 'section7')">Next</button>
+      </div>
+    </div>
+
+    <!-- Section 7: Interactive Quiz -->
+    <div id="section7" class="section">
+      <h2>Quiz: Test Your Phishing Awareness</h2>
+      <div id="quizContainer">
+        <div id="quizProgress" class="progress"></div>
+        <div id="quizQuestion" class="quiz-question"></div>
+        <div id="quizOptions"></div>
+        <div id="quizFeedback" class="feedback"></div>
+        <div class="nav-buttons">
+          <button class="btn" id="nextQuizBtn" onclick="nextQuizQuestion()" style="display: none">
+            Next Question
+          </button>
+        </div>
+      </div>
+      <div id="quizResultFinal" class="feedback"></div>
+      <div class="nav-buttons">
+        <button class="btn" onclick="prevSection('section7', 'section6')">Previous</button>
+        <button class="btn" onclick="restartTraining()">Restart Training</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Navigation functions for sections
+    function nextSection(currentId, nextId) {
+      document.getElementById(currentId).classList.remove("active");
+      document.getElementById(nextId).classList.add("active");
+      if (nextId === "section7") {
+        startQuiz();
+      }
+    }
+
+    function prevSection(currentId, prevId) {
+      document.getElementById(currentId).classList.remove("active");
+      document.getElementById(prevId).classList.add("active");
+    }
+
+    // Email example interactive hint with pulse animation
+    document.getElementById("emailExample").addEventListener("click", function () {
+      const hint = document.getElementById("emailHint");
+      hint.style.display = "block";
+      hint.style.animation = "pulse 1s ease";
+    });
+
+    // Quiz functionality
+    const quizQuestions = [
+      {
+        question: "What is a common sign of a phishing email?",
+        options: [
+          "Suspicious links and urgency",
+          "Official sender and secure URL",
+          "Well-written content"
+        ],
+        answer: 0,
+      },
+      {
+        question: "Which method is NOT typically used in phishing?",
+        options: [
+          "Smishing (SMS phishing)",
+          "Vishing (voice phishing)",
+          "Using multi-factor authentication"
+        ],
+        answer: 2,
+      },
+      {
+        question: "What is a best practice to protect yourself from phishing?",
+        options: [
+          "Always click on urgent links",
+          "Verify sender and use MFA",
+          "Share your password with IT"
+        ],
+        answer: 1,
+      },
+    ];
+
+    let currentQuizIndex = 0;
+    let correctAnswers = 0;
+
+    function startQuiz() {
+      currentQuizIndex = 0;
+      correctAnswers = 0;
+      document.getElementById("quizResultFinal").textContent = "";
+      displayQuizQuestion();
+    }
+
+    function displayQuizQuestion() {
+      const progress = document.getElementById("quizProgress");
+      progress.textContent = `Question ${currentQuizIndex + 1} of ${quizQuestions.length}`;
+
+      const quizQuestionDiv = document.getElementById("quizQuestion");
+      quizQuestionDiv.textContent = quizQuestions[currentQuizIndex].question;
+
+      const quizOptionsDiv = document.getElementById("quizOptions");
+      quizOptionsDiv.innerHTML = "";
+      quizQuestions[currentQuizIndex].options.forEach((option, index) => {
+        const btn = document.createElement("button");
+        btn.className = "quiz-option";
+        btn.textContent = option;
+        btn.onclick = () => checkAnswer(index);
+        quizOptionsDiv.appendChild(btn);
+      });
+
+      document.getElementById("quizFeedback").textContent = "";
+      document.getElementById("nextQuizBtn").style.display = "none";
+    }
+
+    function checkAnswer(selectedIndex) {
+      const feedback = document.getElementById("quizFeedback");
+      if (selectedIndex === quizQuestions[currentQuizIndex].answer) {
+        feedback.textContent = "✅ Correct!";
+        feedback.style.color = "green";
+        correctAnswers++;
+      } else {
+        feedback.textContent = "❌ Incorrect.";
+        feedback.style.color = "red";
+      }
+      document.getElementById("nextQuizBtn").style.display = "inline-block";
+    }
+
+    function nextQuizQuestion() {
+      currentQuizIndex++;
+      if (currentQuizIndex < quizQuestions.length) {
+        displayQuizQuestion();
+      } else {
+        finishQuiz();
+      }
+    }
+
+    function finishQuiz() {
+      const quizContainer = document.getElementById("quizContainer");
+      quizContainer.innerHTML = `<h3>You scored ${correctAnswers} out of ${quizQuestions.length}!</h3>`;
+    }
+
+    function restartTraining() {
+      // Reset all sections and return to the introduction
+      document.querySelectorAll(".section").forEach((section) => section.classList.remove("active"));
+      document.getElementById("section1").classList.add("active");
+    }
+  </script>
+</body>
+</html>
