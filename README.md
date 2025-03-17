@@ -26,7 +26,7 @@ To use this repository locally:
 
 ---
 
-## Screenshot of GUI
+## Screenshot of index.html
 
 ![image](https://github.com/user-attachments/assets/c53310d8-6671-468d-9ae3-460fbad3159b)
 
