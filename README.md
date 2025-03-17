@@ -20,7 +20,7 @@ To use this repository locally:
    ```
 2. Navigate to the project folder:
    ```sh
-   cd Phishing_Awareness_Training
+   cd CodeAlpha_Phishing_Awareness_Training
    ```
 3. Open the `index.html` file in your web browser.
 
