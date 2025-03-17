@@ -24,6 +24,14 @@ To use this repository locally:
    ```
 3. Open the `index.html` file in your web browser.
 
+---
+
+## Screenshot of GUI
+
+![image](https://github.com/user-attachments/assets/c53310d8-6671-468d-9ae3-460fbad3159b)
+
+---
+
 ## Usage
 - Open the training materials in a web browser.
 - Navigate through the lessons and interactive exercises.
