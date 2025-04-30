@@ -1,5 +1,3 @@
-# CodeAlpha
-
 # Phishing Awareness Training
 
 ## Overview
